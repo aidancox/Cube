@@ -52,6 +52,9 @@ public class CubeShatter : MonoBehaviour
         obj.transform.Translate((obj.transform.localScale / 4) - new Vector3(obj.transform.localScale.x / 2, obj.transform.localScale.y / 2, 0));
         obj.GetComponent<Rigidbody>().AddForce((obj.transform.localScale / 4) - new Vector3(obj.transform.localScale.x / 2, obj.transform.localScale.y / 2, 0));
         obj.transform.localScale = obj.transform.localScale / 2;
-        Destroy(gameObject);
+
+        gameObject.GetComponent<Collider>().enabled = false;
+        gameObject.GetComponent<Renderer>().enabled = false;
+        gameObject.GetComponent<Rigidbody>().isKinematic = true;
     }
 }

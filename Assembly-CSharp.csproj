@@ -48,7 +48,10 @@
   <ItemGroup>
      <Compile Include="Assets\ColourChange.cs" />
      <Compile Include="Assets\CubeControl.cs" />
+     <Compile Include="Assets\CubeRecorder.cs" />
      <Compile Include="Assets\CubeShatter.cs" />
+     <Compile Include="Assets\Name.cs" />
+     <Compile Include="Assets\SceneReset.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
