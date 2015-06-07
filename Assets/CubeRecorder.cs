@@ -54,7 +54,7 @@ public class CubeRecorder : MonoBehaviour
             }
         }
 
-        if(button.name == "Button Pressed" && reverse == false)
+        if(button.name == "Button Pressed" && reverse == false && positions.Count > 0)
         {
             index = positions.Count - 1;
             reverse = true;
