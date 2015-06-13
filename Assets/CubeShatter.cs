@@ -8,6 +8,7 @@ public class CubeShatter : MonoBehaviour
     void Start()
     {
         gameObject.GetComponent<Renderer>().material.color = new Color(Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f));
+        gameObject.GetComponent<Rigidbody>().mass = transform.localScale.x / 100;
     }
 
     void OnMouseDown()

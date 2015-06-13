@@ -27,7 +27,7 @@ public class CubeRecorder : MonoBehaviour
         {
             transform.position = positions[index];
             transform.rotation = rotations[index];
-            index -= 4;
+            index -= 3;
 
             if(index <= splitIndex)
             {
