@@ -8,7 +8,7 @@ public class CubeCollisions : MonoBehaviour
     void Start()
     {
         shatter = false;
-        Invoke("Shatter", 0.25f);
+        Invoke("Shatter", 1);
     }
 
     void Shatter()
