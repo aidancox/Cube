@@ -7,14 +7,14 @@ public class Magnet : MonoBehaviour
 
     void Update()
     {
-        Collider[] colliders = Physics.OverlapSphere(transform.position, transform.localScale.x * 1.5f);
+        Collider[] colliders = Physics.OverlapSphere(transform.position, transform.localScale.x * 5f);
 
         foreach(Collider collider in colliders)
         {
-            if (collider.transform.localScale == transform.localScale && recorder.reverse == false)
+            if (collider.transform.localScale == transform.localScale && recorder.reverse == false && collider.GetComponent<Collider>().enabled == true )
             {
                 Vector3 dir = transform.position - collider.transform.position;
-                collider.GetComponent<Rigidbody>().AddForce(dir / 2500);
+                collider.GetComponent<Rigidbody>().AddForce(dir / 5000);
             }
         }
     }

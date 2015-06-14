@@ -8,7 +8,7 @@ public class CubeCollisions : MonoBehaviour
     void Start()
     {
         shatter = false;
-        Invoke("Shatter", 1);
+        Invoke("Shatter", 0.25f);
     }
 
     void Shatter()
@@ -18,7 +18,7 @@ public class CubeCollisions : MonoBehaviour
 
     void OnCollisionEnter(Collision col)
     {
-        if (shatter == true && col.transform.localScale.x > transform.localScale.x && GetComponent<CubeRecorder>().reverse == false && transform.localScale.x > 0.05)
+        if (shatter == true && col.transform.localScale.x > transform.localScale.x && GetComponent<CubeRecorder>().reverse == false && transform.localScale.x > 0.05 && transform.localScale.x >= 0.125f)
         {
             GameObject obj;
             obj = Instantiate(gameObject) as GameObject;
@@ -66,12 +66,19 @@ public class CubeCollisions : MonoBehaviour
             gameObject.GetComponent<Rigidbody>().isKinematic = true;
         }
 
-        if(col.transform.localScale.x == transform.localScale.x && shatter == true && GetComponent<CubeRecorder>().reverse == false)
+        if(col.transform.localScale.x == transform.localScale.x && shatter == true && GetComponent<CubeRecorder>().reverse == false && transform.position.x > col.transform.position.x)
         {
             Vector3 pos = (transform.position + col.transform.position) / 2;
             GameObject obj;
-            obj = Instantiate(gameObject,pos,Quaternion.identity) as GameObject;
+            obj = Instantiate(gameObject, pos, Quaternion.identity) as GameObject;
             obj.transform.localScale = transform.localScale * 1.5f;
+
+            gameObject.GetComponent<Collider>().enabled = false;
+            gameObject.GetComponent<Renderer>().enabled = false;
+            gameObject.GetComponent<Rigidbody>().isKinematic = true;
+            col.gameObject.GetComponent<Collider>().enabled = false;
+            col.gameObject.GetComponent<Renderer>().enabled = false;
+            col.gameObject.GetComponent<Rigidbody>().isKinematic = true;
         }
     }
 }

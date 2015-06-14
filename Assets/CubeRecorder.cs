@@ -9,7 +9,7 @@ public class CubeRecorder : MonoBehaviour
     public int index;
     public int splitIndex;
     public bool reverse;
-    public GameObject button;
+
 
     void Start()
     {
@@ -45,7 +45,7 @@ public class CubeRecorder : MonoBehaviour
                     index = 0;
                     splitIndex = 0;
                     GetComponent<Rigidbody>().isKinematic = false;
-                    button.name = "Buttton";
+                    GetComponent<Reset>().reverse = false;
                 }
                 else
                 {
@@ -54,10 +54,17 @@ public class CubeRecorder : MonoBehaviour
             }
         }
 
-        if(button.name == "Button Pressed" && reverse == false && positions.Count > 0)
+        if(GetComponent<Reset>().reverse == true && reverse == false && positions.Count > 0)
         {
-            index = positions.Count - 1;
-            reverse = true;
+            if (transform.localScale.x == 1 && GetComponent<Collider>().enabled == true)
+            {
+                GetComponent<Reset>().reverse = false;
+            }
+            else
+            {
+                index = positions.Count - 1;
+                reverse = true;
+            }
         }
 
         if(GetComponent<Collider>().enabled == false && splitIndex == 0)

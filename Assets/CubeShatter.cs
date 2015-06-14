@@ -11,51 +11,54 @@ public class CubeShatter : MonoBehaviour
         gameObject.GetComponent<Rigidbody>().mass = transform.localScale.x / 100;
     }
 
-    void OnMouseDown()
+    public void Shatter()
     {
-        GameObject obj;
-        obj = Instantiate(gameObject) as GameObject;
-        obj.transform.Translate(obj.transform.localScale / 4);
-        obj.GetComponent<Rigidbody>().AddForce(obj.transform.localScale / 4);
-        obj.transform.localScale = obj.transform.localScale/2;
+        if (GetComponent<CubeRecorder>().reverse == false)
+        {
+            GameObject obj;
+            obj = Instantiate(gameObject) as GameObject;
+            obj.transform.Translate(obj.transform.localScale / 4);
+            obj.GetComponent<Rigidbody>().AddForce(obj.transform.localScale / 4);
+            obj.transform.localScale = obj.transform.localScale / 2;
 
-        obj = Instantiate(gameObject) as GameObject;
-        obj.transform.Translate((obj.transform.localScale / 4) - new Vector3(0, 0, obj.transform.localScale.z / 2));
-        obj.GetComponent<Rigidbody>().AddForce((obj.transform.localScale / 4) - new Vector3(0, 0, obj.transform.localScale.z / 2));
-        obj.transform.localScale = obj.transform.localScale / 2;
+            obj = Instantiate(gameObject) as GameObject;
+            obj.transform.Translate((obj.transform.localScale / 4) - new Vector3(0, 0, obj.transform.localScale.z / 2));
+            obj.GetComponent<Rigidbody>().AddForce((obj.transform.localScale / 4) - new Vector3(0, 0, obj.transform.localScale.z / 2));
+            obj.transform.localScale = obj.transform.localScale / 2;
 
-        obj = Instantiate(gameObject) as GameObject;
-        obj.transform.Translate((obj.transform.localScale / 4) - new Vector3(obj.transform.localScale.x / 2, 0, obj.transform.localScale.z / 2));
-        obj.GetComponent<Rigidbody>().AddForce((obj.transform.localScale / 4) - new Vector3(obj.transform.localScale.x / 2, 0, obj.transform.localScale.z / 2));
-        obj.transform.localScale = obj.transform.localScale / 2;
+            obj = Instantiate(gameObject) as GameObject;
+            obj.transform.Translate((obj.transform.localScale / 4) - new Vector3(obj.transform.localScale.x / 2, 0, obj.transform.localScale.z / 2));
+            obj.GetComponent<Rigidbody>().AddForce((obj.transform.localScale / 4) - new Vector3(obj.transform.localScale.x / 2, 0, obj.transform.localScale.z / 2));
+            obj.transform.localScale = obj.transform.localScale / 2;
 
-        obj = Instantiate(gameObject) as GameObject;
-        obj.transform.Translate((obj.transform.localScale / 4) - new Vector3(obj.transform.localScale.x / 2, 0, 0));
-        obj.GetComponent<Rigidbody>().AddForce((obj.transform.localScale / 4) - new Vector3(obj.transform.localScale.x / 2, 0, 0));
-        obj.transform.localScale = obj.transform.localScale / 2;
+            obj = Instantiate(gameObject) as GameObject;
+            obj.transform.Translate((obj.transform.localScale / 4) - new Vector3(obj.transform.localScale.x / 2, 0, 0));
+            obj.GetComponent<Rigidbody>().AddForce((obj.transform.localScale / 4) - new Vector3(obj.transform.localScale.x / 2, 0, 0));
+            obj.transform.localScale = obj.transform.localScale / 2;
 
-        obj = Instantiate(gameObject) as GameObject;
-        obj.transform.Translate((obj.transform.localScale / 4) - new Vector3(0, obj.transform.localScale.y / 2, 0));
-        obj.GetComponent<Rigidbody>().AddForce((obj.transform.localScale / 4) - new Vector3(0, obj.transform.localScale.y / 2, 0));
-        obj.transform.localScale = obj.transform.localScale / 2;
+            obj = Instantiate(gameObject) as GameObject;
+            obj.transform.Translate((obj.transform.localScale / 4) - new Vector3(0, obj.transform.localScale.y / 2, 0));
+            obj.GetComponent<Rigidbody>().AddForce((obj.transform.localScale / 4) - new Vector3(0, obj.transform.localScale.y / 2, 0));
+            obj.transform.localScale = obj.transform.localScale / 2;
 
-        obj = Instantiate(gameObject) as GameObject;
-        obj.transform.Translate((obj.transform.localScale / 4) - new Vector3(0, obj.transform.localScale.y / 2, obj.transform.localScale.z / 2));
-        obj.GetComponent<Rigidbody>().AddForce((obj.transform.localScale / 4) - new Vector3(0, obj.transform.localScale.y / 2, obj.transform.localScale.z / 2));
-        obj.transform.localScale = obj.transform.localScale / 2;
+            obj = Instantiate(gameObject) as GameObject;
+            obj.transform.Translate((obj.transform.localScale / 4) - new Vector3(0, obj.transform.localScale.y / 2, obj.transform.localScale.z / 2));
+            obj.GetComponent<Rigidbody>().AddForce((obj.transform.localScale / 4) - new Vector3(0, obj.transform.localScale.y / 2, obj.transform.localScale.z / 2));
+            obj.transform.localScale = obj.transform.localScale / 2;
 
-        obj = Instantiate(gameObject) as GameObject;
-        obj.transform.Translate((obj.transform.localScale / 4) - new Vector3(obj.transform.localScale.x / 2, obj.transform.localScale.y / 2, obj.transform.localScale.z / 2));
-        obj.GetComponent<Rigidbody>().AddForce((obj.transform.localScale / 4) - new Vector3(obj.transform.localScale.x / 2, obj.transform.localScale.y / 2, obj.transform.localScale.z / 2));
-        obj.transform.localScale = obj.transform.localScale / 2;
+            obj = Instantiate(gameObject) as GameObject;
+            obj.transform.Translate((obj.transform.localScale / 4) - new Vector3(obj.transform.localScale.x / 2, obj.transform.localScale.y / 2, obj.transform.localScale.z / 2));
+            obj.GetComponent<Rigidbody>().AddForce((obj.transform.localScale / 4) - new Vector3(obj.transform.localScale.x / 2, obj.transform.localScale.y / 2, obj.transform.localScale.z / 2));
+            obj.transform.localScale = obj.transform.localScale / 2;
 
-        obj = Instantiate(gameObject) as GameObject;
-        obj.transform.Translate((obj.transform.localScale / 4) - new Vector3(obj.transform.localScale.x / 2, obj.transform.localScale.y / 2, 0));
-        obj.GetComponent<Rigidbody>().AddForce((obj.transform.localScale / 4) - new Vector3(obj.transform.localScale.x / 2, obj.transform.localScale.y / 2, 0));
-        obj.transform.localScale = obj.transform.localScale / 2;
+            obj = Instantiate(gameObject) as GameObject;
+            obj.transform.Translate((obj.transform.localScale / 4) - new Vector3(obj.transform.localScale.x / 2, obj.transform.localScale.y / 2, 0));
+            obj.GetComponent<Rigidbody>().AddForce((obj.transform.localScale / 4) - new Vector3(obj.transform.localScale.x / 2, obj.transform.localScale.y / 2, 0));
+            obj.transform.localScale = obj.transform.localScale / 2;
 
-        gameObject.GetComponent<Collider>().enabled = false;
-        gameObject.GetComponent<Renderer>().enabled = false;
-        gameObject.GetComponent<Rigidbody>().isKinematic = true;
+            gameObject.GetComponent<Collider>().enabled = false;
+            gameObject.GetComponent<Renderer>().enabled = false;
+            gameObject.GetComponent<Rigidbody>().isKinematic = true;
+        }
     }
 }

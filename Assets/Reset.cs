@@ -1,15 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Reset : MonoBehaviour {
+public class Reset : MonoBehaviour
+{
+    public bool reverse;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    void Update()
+    {
+        foreach (UnityEngine.Touch touch in Input.touches)
+        {
+            if (touch.tapCount == 2)
+            {
+                reverse = true;
+            }
+        }
+    }
 }
