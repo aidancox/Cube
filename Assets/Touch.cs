@@ -25,6 +25,11 @@ public class Touch : MonoBehaviour
                 dragTouch = touch.fingerId;
             }
 
+            if(touch.phase == TouchPhase.Ended && touch.fingerId == dragTouch)
+            {
+                dragTouch = -1;
+            }
+
             if(touch.fingerId == dragTouch)
             {
                 transform.Rotate(touch.deltaPosition);
