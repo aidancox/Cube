@@ -14,9 +14,10 @@ public class Touch : MonoBehaviour
     {
         foreach(UnityEngine.Touch touch in Input.touches)
         {
-            if(Input.touchCount == 2 && dragTouch == -1)
+            if(Input.touchCount == 2)
             {
                 zooming = true;
+                dragTouch = -1;
                 dist = Vector3.Distance(Input.GetTouch(0).position, Input.GetTouch(1).position);
                 gameObject.GetComponent<Camera>().fieldOfView += dist - prevDist;
                 prevDist = dist;
@@ -33,7 +34,7 @@ public class Touch : MonoBehaviour
                 }
             }
 
-            if((touch.phase == TouchPhase.Moved || touch.phase == TouchPhase.Stationary) && dragTouch == -1)
+            if((touch.phase == TouchPhase.Moved || touch.phase == TouchPhase.Stationary) && dragTouch == -1 && zooming == false)
             {
                 dragTouch = touch.fingerId;
             }
