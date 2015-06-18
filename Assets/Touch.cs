@@ -22,6 +22,10 @@ public class Touch : MonoBehaviour
                 gameObject.GetComponent<Camera>().fieldOfView += dist - prevDist;
                 prevDist = dist;
             }
+            else
+            {
+                zooming = false;
+            }
 
             if (touch.phase == TouchPhase.Ended && touch.tapCount == 1)
             {
@@ -34,7 +38,7 @@ public class Touch : MonoBehaviour
                 }
             }
 
-            if((touch.phase == TouchPhase.Moved || touch.phase == TouchPhase.Stationary) && dragTouch == -1 && zooming == false)
+            if((touch.phase == TouchPhase.Moved || touch.phase == TouchPhase.Stationary) && dragTouch == -1)
             {
                 dragTouch = touch.fingerId;
             }
@@ -44,7 +48,7 @@ public class Touch : MonoBehaviour
                 dragTouch = -1;
             }
 
-            if(touch.fingerId == dragTouch)
+            if (touch.fingerId == dragTouch && zooming == false)
             {
                 transform.Rotate(-touch.deltaPosition);
             }
